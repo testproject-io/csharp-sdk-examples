@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TestProject.SDK" Version="0.46.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="TestProject.Addons.Proxy.CGenericAddonExample">
+      <HintPath>Proxy\AddonProxy.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
