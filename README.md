@@ -672,47 +672,11 @@ Or a more complex one, such as:
 
 It is up to the Action developer how to narrow and limit the list of element types that the action developed will be applicable to.
 
-## Crowd Code / Addon Proxy
-
-One of the greatest features of the TestProject environment is the ability to execute a code written by someone else.\
-It can be your account colleagues writing actions that you can reuse, or TestProject community users.\
-Developer must download a binary file with the proxy class for the Action he wants to execute.
-
-Assuming your account member uploaded the example Addon, named it ***Example Addon*** and you want to reuse it's code your Test.\
-To do so, you can download it's proxy DLL and use it like this:
-
-```csharp
-var clearFieldsAction = ExampleAddon.CreateClearFieldsAction();
-```
-
-Implemented *Execute()* method receives a _Helper_ instance as a parameter.\
-Via this helper, you can execute the proxy by invoking the ***ExecuteProxy*** method:
-
-```csharp
-StepExecutionResult result = helper.ExecuteProxy(clearFieldsAction);
-```
-
-See examples:
-
-* [Web - Proxy Test](Web/Test/TestProject.SDK.Examples.Web.Tests/Tests/ProxyTest.cs)
-* [Android - Proxy Test](Android/Test/TestProject.SDK.Examples.Android.Tests/Tests/ProxyTest.cs)
-* [iOS - Proxy Test](IOS/Test/TestProject.SDK.Examples.IOS.Tests/Tests/ProxyTest.cs)
-* [Generic - Proxy Test](Generic/Test/TestProject.SDK.Examples.Generic.Tests/Tests/ProxyTest.cs)
-
 ## Packaging
 
-
-In order to upload your Addons or Tests to TestProject you must prepare either a *DLL* file or a *ZIP* file:\
+In order to upload your Addons or Tests to TestProject you must prepare either a *DLL* file or a *ZIP* file:
 * If your package only depends on TestProject SDK, you can upload the built *DLL* file to TestProject UI.
 * If your package has other dependencies (e.g. DropBox API), Create a zip file from your project output (including dependencies, excluding TestProject SDK) and upload it to TestProject UI.
-
-Here's a simple example based on our [Web - Proxy Test](Web/Test/TestProject.SDK.Examples.Web.Tests/Tests/ProxyTest.cs) Example\
-To upload this test we will have to create a *ZIP* file containing 2 *DLL* files:
-* TestProject.SDK.Examples.Web.Tests.dll - This is the project output.
-* AddonProxy.dll - the addon proxy this test uses.
-
-
-We are currently working on tools to make deployment easier for you. Stay tuned!
 
 ## Support
 
