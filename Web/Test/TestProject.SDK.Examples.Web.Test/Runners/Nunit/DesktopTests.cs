@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using TestProject.SDK.Common.Enums;
+using TestProject.Common.Enums;
 using TestProject.SDK.Examples.Web.Runners.Nunit.Base;
 
 namespace TestProject.SDK.Examples.Runners.Nunit

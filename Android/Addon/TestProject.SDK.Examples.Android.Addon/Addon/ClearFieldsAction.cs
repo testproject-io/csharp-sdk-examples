@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Appium.Android;
 using TestProject.SDK.Addons.Actions;
 using TestProject.SDK.Addons.Helpers;
-using TestProject.SDK.Common.Attributes;
+using TestProject.Common.Attributes;
 
 namespace TestProject.SDK.Examples.Android.Addon
 {

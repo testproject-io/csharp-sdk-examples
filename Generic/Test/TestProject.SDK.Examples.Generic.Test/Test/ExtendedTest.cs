@@ -1,5 +1,5 @@
-﻿using TestProject.SDK.Common.Attributes;
-using TestProject.SDK.Common.Enums;
+﻿using TestProject.Common.Attributes;
+using TestProject.Common.Enums;
 using TestProject.SDK.Tests;
 using TestProject.SDK.Tests.Helpers;
 

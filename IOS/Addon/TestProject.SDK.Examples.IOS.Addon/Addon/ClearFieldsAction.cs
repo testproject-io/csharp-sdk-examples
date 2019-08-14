@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Appium.iOS;
 using TestProject.SDK.Addons.Actions;
 using TestProject.SDK.Addons.Helpers;
-using TestProject.SDK.Common.Attributes;
+using TestProject.Common.Attributes;
 
 namespace TestProject.SDK.Examples.IOS.Addon
 {

@@ -1,7 +1,6 @@
 using TestProject.Addons.Proxy;
-using TestProject.SDK.Common.Attributes;
-using TestProject.SDK.Common.Enums;
-using TestProject.SDK.Examples.IOS.Addon;
+using TestProject.Common.Attributes;
+using TestProject.Common.Enums;
 using TestProject.SDK.Examples.IOS.Test.Pages;
 using TestProject.SDK.PageObjects;
 using TestProject.SDK.Tests;

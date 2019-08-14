@@ -1,6 +1,6 @@
 using TestProject.Addons.Proxy;
-using TestProject.SDK.Common.Attributes;
-using TestProject.SDK.Common.Enums;
+using TestProject.Common.Attributes;
+using TestProject.Common.Enums;
 using TestProject.SDK.Examples.Android.Test.Pages;
 using TestProject.SDK.PageObjects;
 using TestProject.SDK.Tests;

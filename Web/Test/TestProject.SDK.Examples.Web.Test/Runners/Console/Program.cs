@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using TestProject.SDK.Common.Enums;
+using TestProject.Common.Enums;
 using TestProject.SDK.Examples.Web.Test;
 
 namespace TestProject.SDK.Examples.Web.Runners.Console

@@ -11,11 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="TestProject.SDK" Version="0.50.0" />
+    <PackageReference Include="TestProject.SDK" Version="0.54.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="TestProject.Addons.Proxy.IOSCExampleAddon">
+    <Reference Include="TestProject.Addons.Proxy.CiOSExampleAddon">
       <HintPath>Proxy\AddonProxy.dll</HintPath>
     </Reference>
   </ItemGroup>

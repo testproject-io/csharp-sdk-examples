@@ -2,8 +2,8 @@ using TestProject.SDK.Examples.Android.Test.Pages;
 using TestProject.SDK.Tests;
 using TestProject.SDK.Tests.Helpers;
 using TestProject.SDK.PageObjects;
-using TestProject.SDK.Common.Attributes;
-using TestProject.SDK.Common.Enums;
+using TestProject.Common.Attributes;
+using TestProject.Common.Enums;
 
 namespace TestProject.SDK.Examples.Android.Test
 {

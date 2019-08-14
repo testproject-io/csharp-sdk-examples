@@ -2,9 +2,9 @@
 using TestProject.SDK.Examples.Web.Test.Pages;
 using TestProject.SDK.Tests;
 using TestProject.SDK.Tests.Helpers;
-using TestProject.SDK.Common.Attributes;
+using TestProject.Common.Attributes;
 using TestProject.SDK.PageObjects;
-using TestProject.SDK.Common.Enums;
+using TestProject.Common.Enums;
 using TestProject.SDK.Examples.Web.Addon;
 using TestProject.SDK.Reporters;
 

@@ -2,8 +2,8 @@
 using OpenQA.Selenium.Appium.Android;
 using TestProject.SDK.Addons.ElementAction;
 using TestProject.SDK.Addons.Helpers;
-using TestProject.SDK.Common.Attributes;
-using TestProject.SDK.Common.Enums;
+using TestProject.Common.Attributes;
+using TestProject.Common.Enums;
 
 namespace TestProject.SDK.Examples.Android.Addon
 {

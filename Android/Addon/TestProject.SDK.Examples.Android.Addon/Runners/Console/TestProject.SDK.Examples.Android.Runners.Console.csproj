@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="TestProject.SDK" Version="0.46.2" />
+    <PackageReference Include="TestProject.SDK" Version="0.54.3" />
   </ItemGroup>
 
   <ItemGroup>

@@ -15,11 +15,11 @@ namespace TestProject.SDK.Examples.Android.Test.Pages
 			this.driver = (AndroidDriver<AndroidElement>)driver;
 		}
 
-		[FindsBy(How = How.ClassName, Using = "UIAKeyboard")]
-		public IWebElement keyboard;
-
 		[FindsBy(How = How.Id, Using = "name")]
 		public IWebElement nameElement;
+
+		[FindsBy(How = How.ClassName, Using = "UIAKeyboard")]
+		public IWebElement keyboard;
 
 		[FindsBy(How = How.Id, Using = "password")]
 		public IWebElement passwordElement;
