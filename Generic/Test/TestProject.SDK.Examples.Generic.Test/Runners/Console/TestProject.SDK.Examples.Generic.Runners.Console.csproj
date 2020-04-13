@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="TestProject.SDK" Version="0.54.3" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Test\TestProject.SDK.Examples.Generic.Test.csproj" />
   </ItemGroup>
 

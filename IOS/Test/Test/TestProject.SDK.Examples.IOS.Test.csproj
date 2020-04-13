@@ -5,13 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Pages_old\**" />
-    <EmbeddedResource Remove="Pages_old\**" />
-    <None Remove="Pages_old\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="TestProject.SDK" Version="0.54.3" />
+	  <PackageReference Include="TestProject.SDK" Version="0.61.0" Publish="false" />
   </ItemGroup>
 
   <ItemGroup>
