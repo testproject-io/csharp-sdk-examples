@@ -696,10 +696,10 @@ StepExecutionResult result = helper.ExecuteProxy(clearFieldsAction);
 
 See examples:
 
-* [Web - Proxy Test](Web/Test/TestProject.SDK.Examples.Web.Tests/Tests/ProxyTest.cs)
-* [Android - Proxy Test](Android/Test/TestProject.SDK.Examples.Android.Tests/Tests/ProxyTest.cs)
-* [iOS - Proxy Test](IOS/Test/TestProject.SDK.Examples.IOS.Tests/Tests/ProxyTest.cs)
-* [Generic - Proxy Test](Generic/Test/TestProject.SDK.Examples.Generic.Tests/Tests/ProxyTest.cs)
+* [Web - Proxy Test](Web/Test/TestProject.SDK.Examples.Web.Test/Test/ProxyTest.cs)
+* [Android - Proxy Test](Android/Test/TestProject.SDK.Examples.Android.Test/Test/ProxyTest.cs)
+* [iOS - Proxy Test](IOS/Test/Test/ProxyTest.cs)
+* [Generic - Proxy Test](Generic/Test/TestProject.SDK.Examples.Generic.Test/Test/ProxyTest.cs)
 
 ## Packaging
 
@@ -708,7 +708,7 @@ In order to upload your Addons or Tests to TestProject you must prepare either a
 * If your package only depends on TestProject SDK, you can upload the built *DLL* file to TestProject UI.
 * If your package has other dependencies (e.g. DropBox API), Create a zip file from your project output (including dependencies, excluding TestProject SDK) and upload it to TestProject UI.
 
-Here's a simple example based on our [Web - Proxy Test](Web/Test/TestProject.SDK.Examples.Web.Tests/Tests/ProxyTest.cs) Example\
+Here's a simple example based on our [Web - Proxy Test](Web/Test/TestProject.SDK.Examples.Web.Test/Test/ProxyTest.cs) Example\
 To upload this test we will have to create a *ZIP* file containing 2 *DLL* files:
 * TestProject.SDK.Examples.Web.Tests.dll - This is the project output.
 * AddonProxy.dll - the addon proxy this test uses.
