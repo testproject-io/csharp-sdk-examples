@@ -17,7 +17,7 @@ namespace TestProject.SDK.Examples.IOS.Runners.Nunit
 		[SetUp]
 		public void SetUp()
 		{
-			runner = RunnerFactory.Instance.CreateIOS(DevToken, DeviceUDID, DeviceName, BundleId);
+			runner = new RunnerBuilder(DevToken).AsIOS(DeviceUDID, DeviceName, BundleId).Build();
 		}
 
 		[TearDown]

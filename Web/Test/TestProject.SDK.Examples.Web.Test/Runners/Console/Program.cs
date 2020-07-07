@@ -11,34 +11,18 @@ namespace TestProject.SDK.Examples.Web.Runners.Console
 
 		static void Main(string[] args)
 		{
-			RunBasicTest();
-			RunExtendedTest();
-			RunProxyTest();
-		}
-
-		static void RunBasicTest()
-		{
-			using (Runner runner = RunnerFactory.Instance.CreateWeb(DevToken, BrowserType))
-				runner.Run(new BasicTest());
-		}
-
-		static void RunExtendedTest()
-		{
-			using (Runner runner = RunnerFactory.Instance.CreateWeb(DevToken, BrowserType))
-				runner.Run(new ExtendedTest(), true);
-		}
-
-		static void RunProxyTest()
-		{
-			using (Runner runner = RunnerFactory.Instance.CreateWeb(DevToken, BrowserType))
+			using (Runner runner = new RunnerBuilder(DevToken).AsWeb(BrowserType).Build())
 			{
+				runner.Run(new BasicTest());
+				runner.Run(new ExtendedTest(), true);
+
 				/**
 				* Load proxy assembly into memory to allow SDK finding it's classes
 				* This is only required when running the action proxy in Debug mode via IDE 
 				* This not not needed when running from TestProject platform
 				*/
 				Assembly.LoadFrom("AddonProxy.dll");
-				runner.Run(new BasicTest(), true);
+				runner.Run(new ProxyTest(), true);
 			}
 		}
 	}

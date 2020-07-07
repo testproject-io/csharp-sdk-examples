@@ -1,37 +1,26 @@
-using TestProject.SDK.Examples.Android.Test.Pages;
+using OpenQA.Selenium;
 using TestProject.SDK.Tests;
 using TestProject.SDK.Tests.Helpers;
-using TestProject.SDK.PageObjects;
 
 namespace TestProject.SDK.Examples.Android.Test
 {
 	public class BasicTest : IAndroidTest
 	{
-		public string name = "John Smith";
-		public string password = "12345";
-		public string country = "USA";
-		public string address = "Street number and name";
-		public string email = "john.smith@somewhere.tld";
-		public string phone = "+1 555 555 55";
-
 		public ExecutionResult Execute(AndroidTestHelper helper)
 		{
+			// Get driver initialized by TestProject Agent
+			// No need to specify browser type, it can be done later via UI
 			var driver = helper.Driver;
 
 			driver.ResetApp();
 
-			// Login using provided credentials
-			var loginPage = PageFactory.InitElements<LoginPage>(driver);
+			driver.FindElementById("name").SendKeys("John Smith");
+			driver.FindElementById("password").SendKeys("12345");
+			driver.FindElementById("login").Click();
 
-			// Perform login
-			loginPage.Login(name, password);
-
-			// Complete profile form
-			var profilePage = PageFactory.InitElements<ProfilePage>(driver);
-
-			profilePage.UpdateProfile(country, address, email, phone);
-
-			return profilePage.Saved ? ExecutionResult.Passed : ExecutionResult.Failed;
+			if (driver.FindElements(By.Id("logout")).Count > 0)
+				return ExecutionResult.Passed;
+			return ExecutionResult.Failed;
 		}
 	}
 }
