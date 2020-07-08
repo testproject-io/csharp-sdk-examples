@@ -11,7 +11,8 @@ namespace TestProject.SDK.Examples.Web.Runners.Nunit
 		[OneTimeSetUp]
 		public void SetUp()
 		{
-			runner = RunnerFactory.Instance.CreateIOSWeb(DevToken, IOSDeviceUDID, IOSDeviceName);
+			runner = new RunnerBuilder(DevToken)
+				.AsIOSWeb(IOSDeviceUDID, IOSDeviceName).Build();
 		}
 
 		[Test]

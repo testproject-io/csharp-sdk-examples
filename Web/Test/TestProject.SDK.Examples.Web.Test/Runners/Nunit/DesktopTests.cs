@@ -2,7 +2,7 @@
 using TestProject.Common.Enums;
 using TestProject.SDK.Examples.Web.Runners.Nunit.Base;
 
-namespace TestProject.SDK.Examples.Runners.Nunit
+namespace TestProject.SDK.Examples.Web.Runners.Nunit
 {
 	[TestFixture(AutomatedBrowserType.Edge)]
 	[TestFixture(AutomatedBrowserType.Chrome)]
@@ -14,7 +14,8 @@ namespace TestProject.SDK.Examples.Runners.Nunit
 
 		public DesktopTests(AutomatedBrowserType automatedBrowserType)
 		{
-			runner = RunnerFactory.Instance.CreateWeb(DevToken, automatedBrowserType);
+			runner = new RunnerBuilder(DevToken)
+				.AsWeb(automatedBrowserType).Build();
 		}
 
 		[Test]

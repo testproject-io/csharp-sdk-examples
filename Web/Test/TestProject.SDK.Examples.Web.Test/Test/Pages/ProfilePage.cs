@@ -6,25 +6,25 @@ namespace TestProject.SDK.Examples.Web.Test.Pages
 {
 	class ProfilePage
 	{
-		[FindsBy(How = How.Id, Using = "logout")]
+		[FindsBy(How = How.CssSelector, Using = "#logout")]
 		private IWebElement logoutElement;
 
-		[FindsBy(How = How.Id, Using = "country")]
+		[FindsBy(How = How.CssSelector, Using = "#country")]
 		private IWebElement countryElement;
 
-		[FindsBy(How = How.Id, Using = "address")]
+		[FindsBy(How = How.CssSelector, Using = "#address")]
 		private IWebElement addressElement;
 
-		[FindsBy(How = How.Id, Using = "email")]
+		[FindsBy(How = How.CssSelector, Using = "#email")]
 		private IWebElement emailElement;
 
-		[FindsBy(How = How.Id, Using = "phone")]
+		[FindsBy(How = How.CssSelector, Using = "#phone")]
 		private IWebElement phoneElement;
 
-		[FindsBy(How = How.Id, Using = "save")]
+		[FindsBy(How = How.CssSelector, Using = "#save")]
 		private IWebElement saveElement;
 
-		[FindsBy(How = How.Id, Using = "saved")]
+		[FindsBy(How = How.CssSelector, Using = "#saved")]
 		private IWebElement savedElement;
 
 		private IWebDriver driver;

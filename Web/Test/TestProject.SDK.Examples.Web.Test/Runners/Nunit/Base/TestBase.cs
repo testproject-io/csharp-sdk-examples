@@ -7,18 +7,8 @@ namespace TestProject.SDK.Examples.Web.Runners.Nunit.Base
 	{
 		protected void RunTest(Runner runner)
 		{
-			var test = new BasicTest
-			{
-				name = "John Smith",
-				password = "12345",
-				country = "United States",
-				address = "5000 Highway 7 East",
-				email = "john.smith@tertproject.io",
-				phone = "+1 (905) 515-2000"
-			};
-
-			// Run action
-			runner.Run(test);
+			// Run basic test
+			runner.Run(new BasicTest());
 		}
 
 		protected void RunExtendedTest(Runner runner)

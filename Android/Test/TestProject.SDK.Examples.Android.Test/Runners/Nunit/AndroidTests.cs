@@ -8,7 +8,7 @@ namespace TestProject.SDK.Examples.Android.Runners.Nunit
 	public class AndroidTests
 	{
 		public static string DevToken = "YOUR_DEV_TOKEN";
-		public static string DeviceUDID = "DEVICE_UDID";
+		public static string DeviceUDID = "YOUR_DEVICE_UDID";
 		public static string PackageName = "io.testproject.demo";
 		public static string ActivityName = ".MainActivity";
 
@@ -17,7 +17,7 @@ namespace TestProject.SDK.Examples.Android.Runners.Nunit
 		[SetUp]
 		public void SetUp()
 		{
-			runner = RunnerFactory.Instance.CreateAndroid(DevToken, DeviceUDID, PackageName, ActivityName);
+			runner = new RunnerBuilder(DevToken).AsAndroid(DeviceUDID, PackageName, ActivityName).Build();
 		}
 
 		[TearDown]

@@ -5,13 +5,13 @@ namespace TestProject.SDK.Examples.Web.Test.Pages
 {
 	class LoginPage
 	{
-		[FindsBy(How = How.Id, Using = "name")]
+		[FindsBy(How = How.CssSelector, Using = "#name")]
 		private IWebElement nameElement;
 
-		[FindsBy(How = How.Id, Using = "password")]
+		[FindsBy(How = How.CssSelector, Using = "#password")]
 		private IWebElement passwordElement;
 
-		[FindsBy(How = How.Id, Using = "login")]
+		[FindsBy(How = How.CssSelector, Using = "#login")]
 		private IWebElement loginElement;
 
 		private IWebDriver driver;

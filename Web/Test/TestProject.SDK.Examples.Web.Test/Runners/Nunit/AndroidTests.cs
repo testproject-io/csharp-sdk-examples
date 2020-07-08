@@ -11,7 +11,8 @@ namespace TestProject.SDK.Examples.Web.Runners.Nunit
 		[OneTimeSetUp]
 		public void SetUp()
 		{
-			runner = RunnerFactory.Instance.CreateAndroidWeb(DevToken, AndroidDeviceUDID);
+			runner = new RunnerBuilder(DevToken)
+				.AsAndroidWeb(AndroidDeviceUDID).Build();
 		}
 
 		[Test]
