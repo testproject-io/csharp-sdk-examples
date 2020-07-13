@@ -1,6 +1,6 @@
 ﻿# TestProject SDK for C#
 
-[TestProject](https://testproject.io/) is a Free Test Automation platform for Web and Mobile. \
+[TestProject](https://testproject.io) is a **Free** Test Automation platform for Web, Mobile and API testing. \
 To get familiar with the TestProject, visit our main [documentation](https://docs.testproject.io/) website.
 
 TestProject SDK is a single, integrated interface to scripting with the most popular open source test automation frameworks.
@@ -336,7 +336,7 @@ var runner = new RunnerBuilder("DEV_TOKEN")
 
 ### Disable driver commands reports
 
-Disabling commands reporting will result in tets reports with no steps, unless they are reported manually using `helper.Reporter.step()`.
+Disabling commands reporting will result in tests reports with no steps, unless they are reported manually using `helper.Reporter.step()`.
 The following will disable driver _commands_ reporting: 
 
 ```csharp
