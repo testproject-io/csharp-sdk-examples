@@ -336,7 +336,7 @@ var runner = new RunnerBuilder("DEV_TOKEN")
 
 ### Disable driver commands reports
 
-Disabling commands reporting will result in tests reports with no steps, unless they are reported manually using `helper.Reporter.step()`.
+Disabling commands reporting will result in test reports with no steps, unless they are reported manually using `helper.Reporter.step()`.
 The following will disable driver _commands_ reporting: 
 
 ```csharp
