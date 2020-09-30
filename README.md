@@ -63,38 +63,38 @@ using TestProject.SDK.Tests.Helpers;
 
 namespace MyFirstExample
 {
-	public class Program
-	{
-		static void Main(string[] args)
-		{
-			using (Runner runner = new RunnerBuilder("YOUR-DEV-TOKEN")
-						.AsWeb(AutomatedBrowserType.Chrome).Build())
-			{
-				runner.Run(new BasicTest());
-			}
-		}
+  public class Program
+  {
+    static void Main(string[] args)
+    {
+      using (Runner runner = new RunnerBuilder("YOUR-DEV-TOKEN")
+            .AsWeb(AutomatedBrowserType.Chrome).Build())
+      {
+        runner.Run(new BasicTest());
+      }
+    }
 
-		[Test(Name="Basic Test")]
-		class BasicTest : IWebTest
-		{
-			public ExecutionResult Execute(WebTestHelper helper)
-			{
-				// Get driver initialized by TestProject Agent
-				// No need to specify browser type, it can be done later via UI
-				var driver = helper.Driver;
+    [Test(Name="Basic Test")]
+    class BasicTest : IWebTest
+    {
+      public ExecutionResult Execute(WebTestHelper helper)
+      {
+        // Get driver initialized by TestProject Agent
+        // No need to specify browser type, it can be done later via UI
+        var driver = helper.Driver;
 
-				driver.Navigate().GoToUrl("https://example.testproject.io/web/");
+        driver.Navigate().GoToUrl("https://example.testproject.io/web/");
 
-				driver.FindElementByCssSelector("#name").SendKeys("John Smith");
-				driver.FindElementByCssSelector("#password").SendKeys("12345");
-				driver.FindElementByCssSelector("#login").Click();
+        driver.FindElementByCssSelector("#name").SendKeys("John Smith");
+        driver.FindElementByCssSelector("#password").SendKeys("12345");
+        driver.FindElementByCssSelector("#login").Click();
 
-				if (driver.FindElements(By.CssSelector("#logout")).Count > 0)
-					return ExecutionResult.Passed;
-				return ExecutionResult.Failed;
-			}
-		}
-	}
+        if (driver.FindElements(By.CssSelector("#logout")).Count > 0)
+          return ExecutionResult.Passed;
+        return ExecutionResult.Failed;
+      }
+    }
+  }
 }
 ```
 
@@ -116,28 +116,28 @@ using TestProject.SDK.Examples.Web.Runners.Nunit.Base;
 
 namespace TestProject.SDK.Examples.Runners.Nunit
 {
-	public class BasicTests
-	{
-		Runner runner;
+  public class BasicTests
+  {
+    Runner runner;
 
-		[OneTimeSetUp]
-        public void SetUp()
-        {
-            runner = new RunnerBuilder(DevToken).AsWeb(AutomatedBrowserType.Chrome).Build();
-        }
+    [OneTimeSetUp]
+    public void SetUp()
+    {
+      runner = new RunnerBuilder(DevToken).AsWeb(AutomatedBrowserType.Chrome).Build();
+    }
 
-		[Test]
-		public void TestLogin()
-		{
-			runner.Run(new BasicTest());
-		}
+    [Test]
+    public void TestLogin()
+    {
+      runner.Run(new BasicTest());
+    }
 
-		[OneTimeTearDown]
-		public void TearDown()
-		{
-			runner.Dispose();
-		}
-	}
+    [OneTimeTearDown]
+    public void TearDown()
+    {
+      runner.Dispose();
+    }
+  }
 }
 ```
 
@@ -239,53 +239,57 @@ Even calls in the same testing framework method behave this way.
 For example, following NUnit based code, will generate the following _four_ tests in the report:
 
 ```csharp
+  class Test : IWebTest
+  {
+    [Parameter] public string url;
 
-		class Test : IWebTest 
-		{
-			[Parameter]
-			public string url;
 
-			public ExecutionResult Execute(WebTestHelper helper)
-			{
-				helper.Driver.Navigate().GoToUrl(url);
-				return ExecutionResult.Passed;
-			}
-		}
+    public ExecutionResult Execute(WebTestHelper helper)
+    {
+      helper.Driver.Navigate().GoToUrl(url);
+      return ExecutionResult.Passed;
+    }
+  }
+  
+  class TestRunner {
 
-		public DesktopTests(AutomatedBrowserType automatedBrowserType)
-		{
-			runner = new RunnerBuilder("DevToken")
-						.AsWeb(AutomatedBrowserType.Chrome).Build();
-		}
+    Runner runner;
 
-		[Test]
-		public void RunGoogle()
-		{
-			var test = new Test() { url = "http://www.google.com" };
-			runner.Run(test);
-		}
+    TestRunner()
+    {
+      runner = new RunnerBuilder("DevToken")
+        .AsWeb(AutomatedBrowserType.Chrome).Build();
+    }
 
-		[Test]
-		public void RunTestProject()
-		{
-			var test = new Test() { url = "http://testproject.io" };
-			runner.Run(test);
-		}
+    [Test]
+    public void RunGoogle()
+    {
+      var test = new Test() {url = "http://www.google.com"};
+      runner.Run(test);
+    }
 
-		[Test]
-		public void RunAll()
-		{
-			var test = new Test() { url = "http://www.google.com" };
-			runner.Run(test);
-			test = new Test() { url = "http://testproject.io" };
-			runner.Run(test);
-		}
+    [Test]
+    public void RunTestProject()
+    {
+      var test = new Test() {url = "http://testproject.io"};
+      runner.Run(test);
+    }
 
-		[OneTimeTearDown]
-		public void TearDown()
-		{
-			runner.Dispose();
-		}
+    [Test]
+    public void RunAll()
+    {
+      var test = new Test() {url = "http://www.google.com"};
+      runner.Run(test);
+      test = new Test() {url = "http://testproject.io"};
+      runner.Run(test);
+    }
+
+    [OneTimeTearDown]
+    public void TearDown()
+    {
+      runner.Dispose();
+    }
+  }
 ```
 
 Report:
@@ -336,13 +340,33 @@ var runner = new RunnerBuilder("DEV_TOKEN")
 
 ### Disable driver commands reports
 
-Disabling commands reporting will result in test reports with no steps, unless they are reported manually using `helper.Reporter.step()`.
+Disabling commands reporting will result in tests reports with no steps, unless they are reported manually using `helper.Reporter.step()`.
 The following will disable driver _commands_ reporting: 
 
 ```csharp
 var runner = new RunnerBuilder("DEV_TOKEN")
 	.WithDriverCommandReportingDisabled()
 	.Build();
+```
+
+## Custom capabilities
+
+You can set custom capabilities that will be used by selenium/appium when opening the session. \
+Please note that you can't override basic options like `browserName` using this technique
+
+```csharp
+using OpenQA.Selenium;
+using TestProject.SDK;
+using TestProject.Common.Enums;
+
+var options = new ChromeOptions();
+// Setting custom capability - Headless Chrome
+options.AddArguments("--headless");
+
+using (var runner = new RunnerBuilder("MY_TOKEN")
+	.AsWeb(AutomatedBrowserType.Chrome)
+	.WithOptions(options)
+	.Build())
 ```
 
 # License
